@@ -1,5 +1,3 @@
-#define RAIDER "raider"
-
 SUBSYSTEM_DEF(faction_objective)
 	name = "Faction Objective"
 	flags = SS_KEEP_TIMING
@@ -14,13 +12,13 @@ SUBSYSTEM_DEF(faction_objective)
 
 	for(var/faction in subtypesof(/datum/faction))
 		// TODO: add map check here
-		var/new_faction = new faction()
-		var/name = new_faction.id
-		factions[name] += new_faction
+		var/datum/faction/new_faction = new faction()
+		factions[new_faction.id] += new_faction
 
 /datum/controller/subsystem/faction_objective/fire(resumed)
 	for(var/datum/component/capture_point/capture_point in capture_points)
-		factions[capture_point.faction].points += 1
+		if(capture_point.faction)
+			factions[capture_point.faction].points += 1
 
 /datum/controller/subsystem/faction_objective/proc/register_capture_point(datum/component/capture_point/capture_point)
 	capture_points |= capture_point

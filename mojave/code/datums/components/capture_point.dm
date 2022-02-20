@@ -15,7 +15,7 @@
 	SIGNAL_HANDLER
 
 	if(faction)
-		examine_list += span_notice("[SSfaction_objective.factions[faction].capture_description]")
+		examine_list += span_notice("[SSfaction_objective.factions[faction].capture_description] [SSfaction_objective.factions[faction].points]")
 
 /datum/component/capture_point/proc/capture()
 	SIGNAL_HANDLER

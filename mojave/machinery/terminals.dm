@@ -84,6 +84,8 @@
 	if(!broken)
 		write_documents()
 
+	AddComponent(/datum/component/capture_point)
+
 /obj/machinery/ms13/terminal/screwdriver_act_secondary(mob/living/user, obj/item/weapon)
 	if(flags_1&NODECONSTRUCT_1)
 		return TRUE
